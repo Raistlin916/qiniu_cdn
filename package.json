@@ -1,0 +1,30 @@
+{
+  "name": "qiniu_cdn",
+  "version": "0.0.1",
+  "description": "deploy qiniu cdn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Raistlin916/qiniu_cdn.git"
+  },
+  "dependencies": {
+    "gulp-util": "^2.2.20",
+    "node-qiniu": "^6.1.6",
+    "posix": "^1.0.4",
+    "q": "^1.1.2",
+    "through2": "^0.4.2",
+    "vinyl-fs": "^0.3.13"
+  },
+  "keywords": [
+    "qiniu"
+  ],
+  "author": "gaok",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Raistlin916/qiniu_cdn/issues"
+  },
+  "homepage": "https://github.com/Raistlin916/qiniu_cdn"
+}
