@@ -13,7 +13,6 @@
   "dependencies": {
     "gulp-util": "^2.2.20",
     "node-qiniu": "^6.1.6",
-    "posix": "^1.0.4",
     "q": "^1.1.2",
     "through2": "^0.4.2",
     "vinyl-fs": "^0.3.13"
