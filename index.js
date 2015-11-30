@@ -2,9 +2,10 @@ var nodeQiniu = require('node-qiniu');
 var through = require('through2');
 var fs = require('vinyl-fs');
 var Q = require('q');
+var through2Concurrent = require('through2-concurrent');
 var getEtag = require('./lib/etag');
 var util = require('./lib/util');
-var highWaterMark = 2 * 1024 * 1024 * 1024; // 2G
+var highWaterMark = 1024;
 
 module.exports = function(upload, auth, callback) {
     nodeQiniu.config({
@@ -58,7 +59,7 @@ module.exports = function(upload, auth, callback) {
 };
 
 function init(upload) {
-    return through.obj({highWaterMark: highWaterMark}, function(file, encoding, next) {
+    return through2Concurrent.obj({highWaterMark: highWaterMark}, function(file, encoding, next) {
         var cdnpath = util.getCdnPath(file, upload);
 
         file.checkTryCount = 0;
@@ -73,7 +74,7 @@ function init(upload) {
 }
 
 function checkRemoteFile(context) {
-    return through.obj({highWaterMark: highWaterMark}, function(file, encoding, next) {
+    return through2Concurrent.obj({highWaterMark: highWaterMark}, function(file, encoding, next) {
         if (file.needCheck) {
             var assert = context.qiniu.key(file.cdnPath);
             assert.stat(function(error, result) {
@@ -128,7 +129,7 @@ function checkRemoteFile(context) {
 }
 
 function logCheckFailed(context) {
-    return through.obj({highWaterMark: highWaterMark}, function(file, encoding, next) {
+    return through2Concurrent.obj({highWaterMark: highWaterMark}, function(file, encoding, next) {
         if (file.needCheck) {
             context.logCheckDefer.promise.then(function() {
                 util.logCheckFail(file);
@@ -140,7 +141,7 @@ function logCheckFailed(context) {
 }
 
 function uploadFile(context) {
-    return through.obj({highWaterMark: highWaterMark}, function(file, encoding, next) {
+    return through2Concurrent.obj({highWaterMark: highWaterMark}, function(file, encoding, next) {
         if (file.needUpload) {
             context.qiniu.putFile(file.cdnPath, file.path, function(error, result) {
                 file.uploadSuccess = false;
@@ -166,7 +167,7 @@ function uploadFile(context) {
 }
 
 function logUploadFail(context) {
-    return through.obj({highWaterMark: highWaterMark}, function(file, encoding, next) {
+    return through2Concurrent.obj({highWaterMark: highWaterMark}, function(file, encoding, next) {
         if (file.needUpload) {
             context.logUploadFailDefer.promise.then(function() {
                 util.logUploadFail(file);

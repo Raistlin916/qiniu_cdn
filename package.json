@@ -1,6 +1,6 @@
 {
   "name": "qiniu_cdn",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "deploy qiniu cdn",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "node-qiniu": "^6.2.0",
     "q": "^1.4.1",
     "through2": "^2.0.0",
+    "through2-concurrent": "^1.1.0",
     "vinyl-fs": "^2.2.1"
   },
   "keywords": [
