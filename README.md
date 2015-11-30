@@ -10,7 +10,7 @@ Usage
 First, install qiniu_cdn as a development dependency:
 
 	npm install qiniu_cdn --save
-		
+
 Then
 
 	var qiniuUpload = require('./qiniu_cdn');
@@ -23,4 +23,3 @@ Then
 	    secretKey: 'xxxx',
     	bucket: "xxxx"
 	});
-	
