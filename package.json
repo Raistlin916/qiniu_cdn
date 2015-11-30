@@ -11,11 +11,11 @@
     "url": "https://github.com/Raistlin916/qiniu_cdn.git"
   },
   "dependencies": {
-    "gulp-util": "^2.2.20",
-    "node-qiniu": "^6.1.6",
-    "q": "^1.1.2",
-    "through2": "^0.4.2",
-    "vinyl-fs": "^0.3.13"
+    "gulp-util": "^3.0.7",
+    "node-qiniu": "^6.2.0",
+    "q": "^1.4.1",
+    "through2": "^2.0.0",
+    "vinyl-fs": "^2.2.1"
   },
   "keywords": [
     "qiniu"
@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/Raistlin916/qiniu_cdn/issues"
   },
-  "homepage": "https://github.com/Raistlin916/qiniu_cdn"
+  "homepage": "https://github.com/Raistlin916/qiniu_cdn",
+  "devDependencies": {
+    "should": "^7.1.1"
+  }
 }
