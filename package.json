@@ -1,6 +1,6 @@
 {
   "name": "qiniu_cdn",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "deploy qiniu cdn",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "gulp-util": "^3.0.7",
-    "node-qiniu": "^6.2.0",
     "q": "^1.4.1",
+    "qiniu": "^6.1.8",
     "through2": "^2.0.0",
     "through2-concurrent": "^1.1.0",
     "vinyl-fs": "^2.2.1"
